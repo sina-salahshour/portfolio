@@ -76,7 +76,7 @@ export const typographyStyle = recipe({
       },
       p2: {
         fontSize: "16px",
-        lineHeight: "20px",
+        lineHeight: "24px",
       },
       p3: {
         fontSize: "12px",

@@ -10,7 +10,7 @@ export const headingText = style({
 
 export const rootSection = style({
   paddingBlock: "60px",
-  paddingInline: "80px",
+  marginInline: "80px",
 });
 
 export const selfDescription = style({
