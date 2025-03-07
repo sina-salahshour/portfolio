@@ -19,11 +19,11 @@ export const typographyStyle = recipe({
       outlined: {
         fontSize: "48px",
         lineHeight: "56px",
-        WebkitTextStrokeColor: fallbackVar(
+        WebkitTextFillColor: fallbackVar(
           textStrokeColorVar,
-          theme.color.primary.black,
+          theme.color.primary.white,
         ),
-        WebkitTextFillColor: "currentcolor",
+        WebkitTextStrokeColor: "currentcolor",
         WebkitTextStrokeWidth: 3,
         paintOrder: "stroke fill",
       },
