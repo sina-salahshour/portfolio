@@ -2,11 +2,16 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
-export const heroContainer = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-});
+import { rootSection } from "../root.screen.css";
+
+export const heroContainer = style([
+  rootSection,
+  {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+]);
 
 export const headingText = style({
   display: "flex",

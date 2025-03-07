@@ -12,7 +12,7 @@ export const layers = {
 
 export const wrapper = style({
   display: "grid",
-  gridTemplateColumns: "1fr min(1280px, 100%) 1fr",
+  gridTemplateColumns: "1fr min(1440px, 100%) 1fr",
 });
 
 globalStyle(`${wrapper} > *`, {

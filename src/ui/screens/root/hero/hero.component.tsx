@@ -10,9 +10,9 @@ import {
 
 export function HeroSection() {
   return (
-    <div className={heroContainer}>
+    <section className={heroContainer}>
       <div>
-        <section className={headingText}>
+        <main className={headingText}>
           <div>
             <Typography>Hello I’am </Typography>
             <Typography weight="heading-x-bold">Sina Salahshour.</Typography>
@@ -27,7 +27,7 @@ export function HeroSection() {
             <Typography>Based In </Typography>
             <Typography weight="heading-x-bold">Tabriz</Typography>
           </div>
-        </section>
+        </main>
         <Typography as="p" type="p2" className={selfDescription}>
           Dedicated and skilled frontend developer with over{" "}
           <Typography type="p2" weight="semibold">
@@ -63,6 +63,6 @@ export function HeroSection() {
         </Typography>
       </div>
       <HeroBanner className={heroBanner} />
-    </div>
+    </section>
   );
 }

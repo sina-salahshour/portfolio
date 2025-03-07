@@ -8,6 +8,11 @@ export const headingText = style({
   gap: "20px",
 });
 
+export const rootSection = style({
+  paddingBlock: "60px",
+  paddingInline: "80px",
+});
+
 export const selfDescription = style({
   color: theme.color.zinc["500"],
   marginTop: "32px",
