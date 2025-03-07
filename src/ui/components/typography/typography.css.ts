@@ -7,7 +7,7 @@ export const textStrokeColorVar = createVar("text-sroke-color");
 export const typographyStyle = recipe({
   base: {
     fontFamily: soraFontVar,
-    letterSpacing: "0.02em",
+    letterSpacing: "-0.02em",
     fontStyle: "normal",
   },
   variants: {
