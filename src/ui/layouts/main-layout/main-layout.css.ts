@@ -1,4 +1,6 @@
-import { createTheme } from "@vanilla-extract/css";
+import { createGlobalVar, createTheme } from "@vanilla-extract/css";
+
+export const soraFontVar = createGlobalVar("font-sora");
 
 export const [themeClassName, theme] = createTheme({
   color: {
