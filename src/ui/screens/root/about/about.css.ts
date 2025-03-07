@@ -17,7 +17,6 @@ export const aboutContainer = style([
 export const aboutBanner = style({
   width: "525.45px",
   height: "fit-content",
-  marginBottom: "-42px",
   flexShrink: "0",
 });
 

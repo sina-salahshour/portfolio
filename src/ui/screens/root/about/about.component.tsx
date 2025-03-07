@@ -20,9 +20,11 @@ export function AboutSection() {
     <div className={aboutContainer}>
       <AboutBanner className={aboutBanner} />
       <section className={aboutInfoContainer}>
-        <Typography as="header" className={aboutInfoHeader}>
-          About<Typography weight="heading-x-bold"> Me</Typography>
-        </Typography>
+        <header className={aboutInfoHeader}>
+          <Typography as="h2">
+            About<Typography weight="heading-x-bold"> Me</Typography>
+          </Typography>
+        </header>
         <div className={aboutInfoStack}>
           {aboutMeData.map((info, index) => (
             <Typography key={index} as="p" type="p2">
