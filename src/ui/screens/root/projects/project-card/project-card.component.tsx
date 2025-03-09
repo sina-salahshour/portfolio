@@ -9,6 +9,7 @@ import {
   projectCardContent,
   projectCardDescription,
   projectCardFigure,
+  projectCardImage,
   projectLinkIcon,
 } from "./project-card.css";
 
@@ -28,7 +29,7 @@ export function ProjectCard(props: ProjectCardProps) {
           src={props.image}
           alt={props.title + " preview image"}
           sizes="(max-width: 1280px) 100vw, 33vw"
-          objectFit="cover"
+          className={projectCardImage}
         />
       </figure>
       <div className={projectCardContent}>

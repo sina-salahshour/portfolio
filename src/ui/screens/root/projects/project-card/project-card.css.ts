@@ -37,6 +37,9 @@ export const projectCardFigure = style({
     },
   },
 });
+export const projectCardImage = style({
+  objectFit: "cover",
+});
 
 export const projectCardContent = style({
   display: "flex",
