@@ -1,4 +1,5 @@
 import { AboutSection } from "./about/about.component";
+import { ContactSection } from "./contact/contact.component";
 import { ExperienceSection } from "./experience/experience.component";
 import { HeroSection } from "./hero/hero.component";
 import { ProjectsSection } from "./projects/projects.component";
@@ -15,6 +16,7 @@ export default function RootScreen() {
       <AboutSection />
       <ProjectsSection />
       <TestimonialSection />
+      <ContactSection />
     </>
   );
 }
