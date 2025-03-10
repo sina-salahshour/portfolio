@@ -21,6 +21,12 @@ export const contactForm = style({
   flexDirection: "column",
   gap: "32px",
 });
+
+export const contactFormActionsContainer = style({
+  display: "flex",
+  gap: "24px",
+  justifyContent: "space-between",
+});
 export const contactInfo = style({
   flex: "1",
   maxWidth: "608px",

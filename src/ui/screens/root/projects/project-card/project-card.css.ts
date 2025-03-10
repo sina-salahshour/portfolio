@@ -18,6 +18,15 @@ export const projectCardContainer = style({
 export const projectLinkIcon = style({
   width: "20px",
   height: "20px",
+  transition: "all 250ms",
+  selectors: {
+    "a:hover &": {
+      opacity: "0.8",
+    },
+    "a:active &": {
+      opacity: "0.5",
+    },
+  },
 });
 
 export const projectCardFigure = style({

@@ -31,3 +31,8 @@ export const heroBanner = style({
   marginLeft: "-273px",
   flexShrink: "0",
 });
+
+export const contactLinks = style({
+  marginLeft: "80px",
+  marginTop: "-90px",
+});

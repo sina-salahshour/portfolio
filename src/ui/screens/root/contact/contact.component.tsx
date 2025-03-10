@@ -1,9 +1,12 @@
+import { Button } from "@/ui/components/button/button.component";
 import { TextInput } from "@/ui/components/text-input/text-input.component";
 import { Typography } from "@/ui/components/typography/typography.component";
 
+import { ContactLinks } from "../contact-links/contact-links.component";
 import {
   contactContainer,
   contactForm,
+  contactFormActionsContainer,
   contactHeadingL2,
   contactInfo,
   contactInfoDescription,
@@ -19,7 +22,14 @@ export function ContactSection() {
         <TextInput placeholder="email" inputProps={{ type: "email" }} />
         <TextInput placeholder="Your website (if exists)" />
         <TextInput placeholder="How can I help?" as="textarea" />
-        <div>{/* get in touch .. */}</div>
+        <div className={contactFormActionsContainer}>
+          <Button>
+            <Typography type="button" weight="semibold">
+              Get In Touch
+            </Typography>
+          </Button>
+          <ContactLinks />
+        </div>
       </form>
       <section className={contactInfo}>
         <header>
