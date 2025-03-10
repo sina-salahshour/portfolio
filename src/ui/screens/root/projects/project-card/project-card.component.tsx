@@ -44,7 +44,7 @@ export function ProjectCard(props: ProjectCardProps) {
         </Typography>
 
         {props.link != null && (
-          <a href={props.link} target="_blank">
+          <a href={props.link} title={props.title} target="_blank">
             <ReadMoreIcon className={projectLinkIcon} />
           </a>
         )}
