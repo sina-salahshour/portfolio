@@ -34,7 +34,7 @@ export const menuInput = style({
   backgroundImage: "linear-gradient(to right,black, black)",
   backgroundRepeat: "no-repeat",
   backgroundSize: "28px 3px",
-  backgroundPosition: "center",
+  backgroundPosition: "center 11px",
 
   selectors: {
     "&::after, &::before": {
@@ -47,10 +47,10 @@ export const menuInput = style({
       transform: "translateY(-50%)",
     },
     "&::after": {
-      top: "6px",
+      top: "3px",
     },
     "&::before": {
-      bottom: "4px",
+      bottom: "3px",
     },
     "&:checked": {
       backgroundPosition: "36px center",

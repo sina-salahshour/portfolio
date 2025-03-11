@@ -13,6 +13,7 @@ export const heroContainer = style([
     "@media": {
       [mediaMobile]: {
         flexDirection: "column-reverse",
+        marginTop: "48px",
         gap: "48px",
       },
     },
