@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const contactContainer = style([
   rootSection,
@@ -11,6 +11,11 @@ export const contactContainer = style([
     justifyContent: "space-between",
     gap: "32px",
     paddingInline: "32px",
+    "@media": {
+      [mediaMobile]: {
+        flexDirection: "column",
+      },
+    },
   },
 ]);
 
@@ -20,12 +25,23 @@ export const contactForm = style({
   display: "flex",
   flexDirection: "column",
   gap: "32px",
+  "@media": {
+    [mediaMobile]: {
+      gap: "20px",
+    },
+  },
 });
 
 export const contactFormActionsContainer = style({
   display: "flex",
   gap: "24px",
   justifyContent: "space-between",
+  "@media": {
+    [mediaMobile]: {
+      flexDirection: "column",
+      alignItems: "start",
+    },
+  },
 });
 export const contactInfo = style({
   flex: "1",

@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const experienceWrapper = style({
   backgroundColor: theme.color.primary.black,
@@ -14,6 +14,11 @@ export const experienceContainer = style([
     display: "flex",
     flexDirection: "column",
     gap: "20px",
+    "@media": {
+      [mediaMobile]: {
+        gap: "10px",
+      },
+    },
   },
 ]);
 export const experienceHeader = style({
@@ -31,4 +36,12 @@ export const experienceCardStack = style({
   display: "flex",
   flexDirection: "column",
   gap: "32px",
+  "@media": {
+    [mediaMobile]: {
+      paddingBlock: "0px",
+      paddingInline: "0px",
+      marginInline: "0px",
+      gap: "20px",
+    },
+  },
 });

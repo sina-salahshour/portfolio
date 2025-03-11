@@ -1,11 +1,18 @@
 import { style } from "@vanilla-extract/css";
 
+import { mediaMobile } from "@/ui/screens/root/root.screen.css";
+
 export const headerContainer = style({
   display: "flex",
   alignItems: "center",
   height: "104px",
   justifyContent: "center",
   position: "relative",
+  "@media": {
+    [mediaMobile]: {
+      display: "none",
+    },
+  },
 });
 
 export const headerWrapper = style({

@@ -2,6 +2,8 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
+import { mediaMobile } from "../../root.screen.css";
+
 export const skillCardContainer = style({
   border: "2px solid",
   borderColor: theme.color.primary.black,
@@ -17,6 +19,12 @@ export const skillCardContainer = style({
   ":hover": {
     backgroundColor: theme.color.primary.black,
     color: theme.color.primary.white,
+  },
+  "@media": {
+    [mediaMobile]: {
+      width: "160px",
+      height: "160px",
+    },
   },
 });
 

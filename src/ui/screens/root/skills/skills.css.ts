@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const skillsContainer = style([
   rootSection,
@@ -23,4 +23,12 @@ export const skillsGrid = style({
   width: "100%",
   gridTemplateColumns: "repeat(auto-fit, minmax(224px, 1fr))",
   placeItems: "center",
+  "@media": {
+    [mediaMobile]: {
+      gap: "20px",
+      paddingBlock: "0px",
+      gridTemplateColumns: "repeat(auto-fit, 160px)",
+      placeContent: "center",
+    },
+  },
 });

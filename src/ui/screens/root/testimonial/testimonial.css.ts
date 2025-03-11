@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const testimonialContainer = style([
   rootSection,
@@ -22,4 +22,13 @@ export const testimonialStack = style({
   paddingInline: "24px",
   paddingBlock: "40px",
   width: "100%",
+  "@media": {
+    [mediaMobile]: {
+      paddingInline: "0px",
+      paddingBlock: "0px",
+      flexDirection: "column",
+      gap: "40px",
+      alignItems: "center",
+    },
+  },
 });

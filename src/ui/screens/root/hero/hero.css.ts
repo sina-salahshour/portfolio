@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const heroContainer = style([
   rootSection,
@@ -10,6 +10,12 @@ export const heroContainer = style([
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "@media": {
+      [mediaMobile]: {
+        flexDirection: "column-reverse",
+        gap: "48px",
+      },
+    },
   },
 ]);
 
@@ -30,9 +36,22 @@ export const heroBanner = style({
   height: "fit-content",
   marginLeft: "-273px",
   flexShrink: "0",
+  "@media": {
+    [mediaMobile]: {
+      width: "100%",
+      marginLeft: "0px",
+      transform: "translateX(-5%)",
+    },
+  },
 });
 
 export const contactLinks = style({
   marginLeft: "80px",
   marginTop: "-90px",
+  "@media": {
+    [mediaMobile]: {
+      marginTop: "0px",
+      marginInline: "16px",
+    },
+  },
 });

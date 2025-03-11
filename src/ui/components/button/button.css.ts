@@ -1,6 +1,7 @@
 import { recipe } from "@vanilla-extract/recipes";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
+import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
 export const buttonContainer = recipe({
   base: {
@@ -34,6 +35,13 @@ export const buttonContainer = recipe({
         height: "56px",
         minWidth: "56px",
         paddingInline: "20px",
+        "@media": {
+          [mediaMobile]: {
+            height: "48px",
+            minWidth: "48px",
+            paddingInline: "16px",
+          },
+        },
       },
     },
   },

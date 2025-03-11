@@ -2,6 +2,8 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
+import { mediaMobile } from "../../root.screen.css";
+
 export const projectCardContainer = style({
   paddingBlock: "20px",
   display: "flex",
@@ -11,6 +13,16 @@ export const projectCardContainer = style({
   selectors: {
     "&:nth-child(even)": {
       flexDirection: "row-reverse",
+    },
+  },
+  "@media": {
+    [mediaMobile]: {
+      flexDirection: "column",
+      selectors: {
+        "&:nth-child(even)": {
+          flexDirection: "column",
+        },
+      },
     },
   },
 });
@@ -43,6 +55,21 @@ export const projectCardFigure = style({
     },
     [`${projectCardContainer}:nth-child(odd) &`]: {
       marginInlineEnd: "64px",
+    },
+  },
+  "@media": {
+    [mediaMobile]: {
+      width: "100%",
+      height: "400px",
+      margin: "0px",
+      selectors: {
+        [`${projectCardContainer}:nth-child(even) &`]: {
+          marginInlineStart: "0px",
+        },
+        [`${projectCardContainer}:nth-child(odd) &`]: {
+          marginInlineEnd: "0px",
+        },
+      },
     },
   },
 });

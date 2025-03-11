@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/ui/layouts/main-layout/main-layout.css";
 
-import { rootSection } from "../root.screen.css";
+import { mediaMobile, rootSection } from "../root.screen.css";
 
 export const aboutContainer = style([
   rootSection,
@@ -11,6 +11,12 @@ export const aboutContainer = style([
     display: "flex",
     justifyContent: "space-between",
     gap: "24px",
+    "@media": {
+      [mediaMobile]: {
+        flexDirection: "column",
+        paddingInline: "0px",
+      },
+    },
   },
 ]);
 
@@ -18,14 +24,24 @@ export const aboutBanner = style({
   width: "525.45px",
   height: "fit-content",
   flexShrink: "0",
+  "@media": {
+    [mediaMobile]: {
+      width: "100%",
+    },
+  },
 });
 
 export const aboutInfoContainer = style({
   width: "610px",
+  "@media": {
+    [mediaMobile]: {
+      width: "100%",
+    },
+  },
 });
 
 export const aboutInfoHeader = style({
-  height: "96px",
+  minHeight: "96px",
 });
 
 export const aboutInfoStack = style({
