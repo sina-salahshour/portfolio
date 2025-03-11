@@ -5,7 +5,6 @@ import { LinkButton } from "@/ui/components/button/link-button.component";
 import { Typography } from "@/ui/components/typography/typography.component";
 
 import { wrapper } from "../main-layout.css";
-import { menuInput } from "./hamburger-menu-button.css";
 import {
   headerContainer,
   headerLinkStack,
