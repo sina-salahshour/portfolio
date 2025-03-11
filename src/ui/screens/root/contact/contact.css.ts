@@ -14,6 +14,7 @@ export const contactContainer = style([
     "@media": {
       [mediaMobile]: {
         flexDirection: "column",
+        paddingInline: "0px",
       },
     },
   },
