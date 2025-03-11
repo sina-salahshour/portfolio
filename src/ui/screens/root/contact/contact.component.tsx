@@ -16,7 +16,7 @@ import {
 
 export function ContactSection() {
   return (
-    <section className={contactContainer}>
+    <section className={contactContainer} id="contact">
       <form className={contactForm}>
         <TextInput placeholder="Your name" />
         <TextInput placeholder="email" inputProps={{ type: "email" }} />

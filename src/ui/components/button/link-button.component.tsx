@@ -12,8 +12,8 @@ export function LinkButton(props: ButtonProps) {
     <a
       {...rest}
       className={clsx(
-        props.className,
         buttonContainer({ size: props.size ?? "medium" }),
+        props.className,
       )}
     />
   );

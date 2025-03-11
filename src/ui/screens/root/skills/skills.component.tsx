@@ -6,7 +6,7 @@ import { skillsContainer, skillsGrid, skillsHeader } from "./skills.css";
 
 export function SkillsSection() {
   return (
-    <section className={skillsContainer}>
+    <section className={skillsContainer} id="skills">
       <header className={skillsHeader}>
         <Typography as="h2">
           My <Typography weight="heading-x-bold">Skills</Typography>

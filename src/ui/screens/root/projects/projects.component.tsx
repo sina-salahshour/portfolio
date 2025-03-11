@@ -22,7 +22,7 @@ const sampleProject = {
 export function ProjectsSection() {
   return (
     <div className={clsx(fullBleed, wrapper, projectWrapper)}>
-      <section className={projectContainer}>
+      <section className={projectContainer} id="project">
         <header className={projectHeader}>
           <Typography as="h2">
             My<Typography weight="heading-x-bold"> Projects</Typography>
