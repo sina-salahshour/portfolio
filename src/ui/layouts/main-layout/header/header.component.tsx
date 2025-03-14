@@ -1,8 +1,14 @@
 "use client";
 import clsx from "clsx";
+import { transform } from "motion";
 import type { Variants } from "motion/react";
-import { motion } from "motion/react";
-import { useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 import DownloadIcon from "@/assets/svg/(main-layout)/download.svg";
 import { LinkButton } from "@/ui/components/button/link-button.component";
@@ -13,10 +19,13 @@ import { wrapper } from "../main-layout.css";
 import { HamburgerMenuButton } from "./hamburger-menu-button/hamburger-menu-button.component";
 import {
   headerContainer,
+  headerLinkItem,
   headerLinkStack,
   headerWrapper,
+  linkHoverIndicator,
   resumeButton,
   resumeButtonIcon,
+  resumeButtonWrapper,
 } from "./header.css";
 import { HeaderLinkButton } from "./link-button/link-button.component";
 
@@ -41,20 +50,93 @@ const menuItems = [
 
 export function MainLayoutHeaderSection() {
   const isMobile = useIsMobile();
+  const [isNavbarHiddenRaw, setIsNavbarHidden] = useState(false);
+  const isNavbarHidden = !isMobile && isNavbarHiddenRaw;
+  const scroll = useScroll();
+  const lastScrollYRef = useRef(0);
+  useMotionValueEvent(scroll.scrollY, "change", (y) => {
+    const difference = y - lastScrollYRef.current;
+    if (y < 500 && !isNavbarHiddenRaw) {
+      return;
+    }
+
+    if (Math.abs(difference) > 50) {
+      setIsNavbarHidden(difference > 0);
+
+      lastScrollYRef.current = y;
+    }
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [isMobile]);
+  const navbarChangeProgress = useTransform(scroll.scrollY, (latest) => {
+    if (isMobile) {
+      return 0;
+    }
+    return transform(latest, [0, 500], [0, 1]);
+  });
+  const navbarHeight = useTransform(navbarChangeProgress, (latest) => {
+    if (isMobile) {
+      return "100dvh";
+    }
+    return transform(latest, [0, 1], [104, 80]);
+  });
+  const [lastHovered, setLastHovered] = useState("");
+  const downloadButtonScale = useTransform(
+    navbarChangeProgress,
+    [0, 1],
+    [1, 0.8],
+  );
+  const downloadButtonX = useTransform(navbarChangeProgress, [0, 1], [0, 28]);
+  const navbarPadding = useTransform(navbarChangeProgress, [0, 1], [0, 8]);
+  const navbarBorderRadius = useTransform(navbarChangeProgress, [0, 1], [4, 8]);
+  const navbarBorderColor = useTransform(
+    navbarChangeProgress,
+    [0, 0.5, 1],
+    ["#0000", "#0000", "#000f"],
+  );
+  const navbarWidth = useTransform(
+    navbarChangeProgress,
+    [0, 1],
+    ["calc(100% - 0px)", "calc(100% - 24px)"],
+  );
   return (
     <>
       <HamburgerMenuButton isOpen={isMenuOpen} onToggle={setIsMenuOpen} />
       <motion.div
         animate={!isMobile ? "desktop" : isMenuOpen ? "open" : "idle"}
         variants={containerVariants}
+        whileHover="hover"
+        onTap={() => setIsNavbarHidden(false)}
         className={clsx(wrapper, headerWrapper)}
+        custom={isNavbarHidden}
+        style={{
+          height: navbarHeight,
+          paddingTop: navbarPadding,
+        }}
         layout
       >
-        <header className={headerContainer}>
+        <motion.header
+          style={{
+            width: navbarWidth,
+            borderRadius: navbarBorderRadius,
+            borderColor: navbarBorderColor,
+          }}
+          variants={navbarVariants}
+          custom={isNavbarHidden}
+          className={headerContainer}
+          layout
+        >
           <div className={headerLinkStack}>
             {menuItems.map((item) => (
-              <motion.div variants={linkVariants} key={item.link}>
+              <motion.div
+                className={headerLinkItem}
+                style={{ scale: downloadButtonScale }}
+                variants={linkVariants}
+                key={item.link}
+                onHoverStart={() => setLastHovered(item.link)}
+              >
                 <HeaderLinkButton
                   href={item.link}
                   onClick={() => {
@@ -63,10 +145,23 @@ export function MainLayoutHeaderSection() {
                 >
                   {item.title}
                 </HeaderLinkButton>
+                {lastHovered === item.link && (
+                  <motion.div
+                    className={linkHoverIndicator}
+                    layoutId="navlink-hover-indicator"
+                  ></motion.div>
+                )}
               </motion.div>
             ))}
           </div>
-          <motion.div variants={resumelinkVariant}>
+          <motion.div
+            style={{
+              scale: downloadButtonScale,
+              x: downloadButtonX,
+            }}
+            variants={resumelinkVariant}
+            className={resumeButtonWrapper}
+          >
             <LinkButton
               href="/resume.pdf"
               download="Sina-Salahshour-resume.pdf"
@@ -79,7 +174,7 @@ export function MainLayoutHeaderSection() {
               <DownloadIcon className={resumeButtonIcon} />
             </LinkButton>
           </motion.div>
-        </header>
+        </motion.header>
       </motion.div>
     </>
   );
@@ -89,7 +184,6 @@ const containerVariants = {
   idle: {
     opacity: 0,
     pointerEvents: "none",
-    height: "100dvh",
   },
   open: {
     opacity: 1,
@@ -98,14 +192,21 @@ const containerVariants = {
       when: "beforeChildren",
     },
     pointerEvents: "auto",
-    height: "100dvh",
   },
-  desktop: {
+  desktop: (isHidden: boolean) => ({
+    y: isHidden ? "-70%" : "0%",
     opacity: 1,
     pointerEvents: "auto",
-    height: "104px",
+  }),
+  hover: {
+    y: "0%",
   },
 } satisfies Variants;
+const navbarVariants = {
+  hover: {
+    y: "0%",
+  },
+};
 const linkVariants = {
   idle: {
     opacity: 0,
@@ -117,22 +218,31 @@ const linkVariants = {
   },
   desktop: {
     opacity: 1,
-    transition: {},
   },
+  hover: {},
 } satisfies Variants;
 
 const resumelinkVariant = {
   idle: {
+    transition: {
+      position: { duration: 0 },
+    },
+    position: "static",
     opacity: 0,
     filter: "blur(4px)",
     y: 8,
   },
   open: {
+    transition: {
+      position: { duration: 0 },
+    },
+    position: "static",
     opacity: 1,
     filter: "blur(0px)",
     y: 0,
   },
   desktop: {
-    display: "contents",
+    position: "absolute",
+    right: "24px",
   },
 } satisfies Variants;

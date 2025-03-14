@@ -2,12 +2,18 @@ import { style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
+import { theme } from "../main-layout.css";
+
 export const headerContainer = style({
   display: "flex",
   alignItems: "center",
-  height: "104px",
   justifyContent: "center",
+  backgroundColor: "#fff",
+  backdropFilter: "blur(5px)",
   position: "relative",
+  marginInline: "auto",
+  border: "2px solid transparent",
+  borderRadius: "8px",
   "@media": {
     [mediaMobile]: {
       height: "100dvh",
@@ -20,8 +26,6 @@ export const headerContainer = style({
 export const headerWrapper = style({
   position: "sticky",
   top: "0px",
-  backgroundColor: "#fff8",
-  backdropFilter: "blur(5px)",
   zIndex: "50",
   "@media": {
     [mediaMobile]: {
@@ -42,12 +46,16 @@ export const headerLinkStack = style({
     },
   },
 });
+export const headerLinkItem = style({
+  position: "relative",
+});
+
+export const resumeButtonWrapper = style({
+  position: "absolute",
+  right: "24px",
+});
 
 export const resumeButton = style({
-  position: "absolute",
-  top: "50%",
-  right: "32px",
-  transform: "translateY(-50%)",
   "@media": {
     [mediaMobile]: {
       position: "static",
@@ -59,4 +67,19 @@ export const resumeButton = style({
 export const resumeButtonIcon = style({
   width: "15px",
   height: "15px",
+});
+
+export const linkHoverIndicator = style({
+  width: "100%",
+  height: "2px",
+  transition: "background-color 250ms",
+  position: "absolute",
+  borderRadius: "2px",
+  bottom: "0px",
+  left: "0px",
+  selectors: {
+    [`${headerLinkStack}:hover &`]: {
+      backgroundColor: "black",
+    },
+  },
 });

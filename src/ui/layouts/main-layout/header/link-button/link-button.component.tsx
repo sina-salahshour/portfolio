@@ -8,7 +8,7 @@ import { useIsMobile } from "@/utils/use-is-mobile";
 
 import { buttonText } from "./link-button.css";
 
-const navbarSize = 104;
+const navbarSize = 12;
 type ButtonProps = ComponentProps<typeof Link>;
 export function HeaderLinkButton(props: ButtonProps) {
   const isMobile = useIsMobile();
