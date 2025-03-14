@@ -145,7 +145,7 @@ export function MainLayoutHeaderSection() {
                 >
                   {item.title}
                 </HeaderLinkButton>
-                {lastHovered === item.link && (
+                {!isMobile && lastHovered === item.link && (
                   <motion.div
                     className={linkHoverIndicator}
                     layoutId="navlink-hover-indicator"
