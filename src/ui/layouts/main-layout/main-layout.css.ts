@@ -80,6 +80,7 @@ globalStyle("a, button", {
   "@layer": {
     [layers.reset]: {
       cursor: "pointer",
+      WebkitTapHighlightColor: "transparent",
     },
   },
 });
