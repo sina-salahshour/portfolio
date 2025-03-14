@@ -13,6 +13,7 @@ export function HamburgerMenuButton(props: HamburgerMenuButtonProps) {
   const isOpen = props.isOpen;
   return (
     <motion.button
+      data-hamburger-open={isOpen}
       variants={buttonVariants}
       animate={isOpen ? "enabled" : "idle"}
       whileHover={isOpen ? "enabled-hover" : "idle-hover"}

@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
@@ -18,6 +18,13 @@ export const hamburgerContainer = style({
     [mediaMobile]: {
       opacity: "1",
       pointerEvents: "initial",
+    },
+  },
+});
+globalStyle(`body:has([data-hamburger-open=true])`, {
+  "@media": {
+    [mediaMobile]: {
+      overflow: "hidden",
     },
   },
 });
