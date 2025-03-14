@@ -16,9 +16,11 @@ export const skillCardContainer = style({
   justifyContent: "center",
   gap: "32px",
   transition: "all 250ms",
-  ":hover": {
-    backgroundColor: theme.color.primary.black,
-    color: theme.color.primary.white,
+  selectors: {
+    "&:nth-child(odd)": {
+      backgroundColor: theme.color.primary.black,
+      color: theme.color.primary.white,
+    },
   },
   "@media": {
     [mediaMobile]: {
@@ -33,7 +35,7 @@ export const skillCardIcon = style({
   height: "56px",
   transition: "all 250ms",
   selectors: {
-    [`${skillCardContainer}:hover  &`]: {
+    [`${skillCardContainer}:nth-child(odd) &`]: {
       filter: "invert(1)",
     },
   },

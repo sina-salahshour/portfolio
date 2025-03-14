@@ -2,6 +2,8 @@ import { style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
+import { theme } from "../main-layout.css";
+
 export const headerContainer = style({
   display: "flex",
   alignItems: "center",
@@ -14,7 +16,12 @@ export const headerContainer = style({
   borderRadius: "8px",
   "@media": {
     [mediaMobile]: {
-      height: "100dvh",
+      cursor: "auto",
+      backdropFilter: "none",
+      backgroundColor: "transparent",
+      height: "fit-content",
+      paddingBlock: "80px",
+      width: "350px",
       flexDirection: "column",
       gap: "24px",
     },
@@ -27,10 +34,14 @@ export const headerWrapper = style({
   zIndex: "50",
   "@media": {
     [mediaMobile]: {
+      cursor: "pointer",
       inset: "0px",
       position: "fixed",
       pointerEvents: "none",
       opacity: "0",
+      display: "flex",
+      placeItems: "center",
+      backgroundColor: "#0006",
     },
   },
 });
@@ -80,4 +91,12 @@ export const linkHoverIndicator = style({
       backgroundColor: "black",
     },
   },
+});
+
+export const navbarMenuBackground = style({
+  backgroundColor: theme.color.zinc[300],
+  borderRadius: "8px",
+  inset: "0",
+  position: "absolute",
+  backdropFilter: "blur(2px)",
 });

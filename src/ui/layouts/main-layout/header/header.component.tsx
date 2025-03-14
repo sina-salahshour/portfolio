@@ -23,6 +23,7 @@ import {
   headerLinkStack,
   headerWrapper,
   linkHoverIndicator,
+  navbarMenuBackground,
   resumeButton,
   resumeButtonIcon,
   resumeButtonWrapper,
@@ -96,11 +97,12 @@ export function MainLayoutHeaderSection() {
     [0, 0.5, 1],
     ["#0000", "#0000", "#000f"],
   );
-  const navbarWidth = useTransform(
-    navbarChangeProgress,
-    [0, 1],
-    ["calc(100% - 0px)", "calc(100% - 24px)"],
-  );
+  const navbarWidth = useTransform(navbarChangeProgress, (latest) => {
+    if (isMobile) {
+      return "400px";
+    }
+    return transform(latest, [0, 1], ["calc(100% - 0px)", "calc(100% - 24px)"]);
+  });
   return (
     <>
       <HamburgerMenuButton isOpen={isMenuOpen} onToggle={setIsMenuOpen} />
@@ -108,7 +110,10 @@ export function MainLayoutHeaderSection() {
         animate={!isMobile ? "desktop" : isMenuOpen ? "open" : "idle"}
         variants={containerVariants}
         whileHover="hover"
-        onTap={() => setIsNavbarHidden(false)}
+        onTap={() => {
+          setIsNavbarHidden(false);
+          setIsMenuOpen(false);
+        }}
         className={clsx(wrapper, headerWrapper)}
         custom={isNavbarHidden}
         style={{
@@ -128,6 +133,16 @@ export function MainLayoutHeaderSection() {
           className={headerContainer}
           layout
         >
+          {isMenuOpen && (
+            <motion.div
+              layout
+              style={{
+                borderRadius: "8px",
+              }}
+              className={navbarMenuBackground}
+              layoutId="navigation-menu-background"
+            ></motion.div>
+          )}
           <ul className={headerLinkStack}>
             {menuItems.map((item) => (
               <li
@@ -189,10 +204,12 @@ const containerVariants = {
   idle: {
     opacity: 0,
     pointerEvents: "none",
+    transition: {},
   },
   open: {
     opacity: 1,
     transition: {
+      delayChildren: 0.1,
       staggerChildren: 0.1,
       when: "beforeChildren",
     },
@@ -221,11 +238,13 @@ const navbarVariants = {
 const linkVariants = {
   idle: {
     opacity: 0,
-    x: -8,
+    x: 32,
+    y: -32,
   },
   open: {
     opacity: 1,
     x: 0,
+    y: 0,
   },
   desktop: {
     opacity: 1,
@@ -241,7 +260,7 @@ const resumelinkVariant = {
     position: "static",
     opacity: 0,
     filter: "blur(4px)",
-    y: 8,
+    y: -20,
   },
   open: {
     transition: {

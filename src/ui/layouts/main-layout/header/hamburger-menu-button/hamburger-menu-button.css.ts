@@ -38,4 +38,5 @@ export const hamburgerLine = style({
   position: "absolute",
   transformOrigin: "center",
   borderRadius: "1px",
+  zIndex: "100",
 });

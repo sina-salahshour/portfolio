@@ -2,6 +2,7 @@
 import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 
+import { navbarMenuBackground } from "../header.css";
 import { hamburgerContainer, hamburgerLine } from "./hamburger-menu-button.css";
 
 interface HamburgerMenuButtonProps {
@@ -35,6 +36,18 @@ export function HamburgerMenuButton(props: HamburgerMenuButtonProps) {
         className={hamburgerLine}
         transformTemplate={centeredTransformTemplate}
       ></motion.div>
+      {!isOpen && (
+        <motion.div
+          style={{
+            borderRadius: "4px",
+          }}
+          transition={{
+            delay: 0.2,
+          }}
+          className={navbarMenuBackground}
+          layoutId="navigation-menu-background"
+        ></motion.div>
+      )}
     </motion.button>
   );
 }
@@ -44,19 +57,17 @@ const centeredTransformTemplate = (_: unknown, generated: string) =>
 
 const buttonVariants = {
   idle: {
-    backgroundColor: "#fff4",
-    backdropFilter: "blur(3px)",
+    zIndex: 30,
   },
   "idle-hover": {},
   enabled: {
+    zIndex: 100,
     x: [0, -4, 0],
     transition: {
       rotate: {
         duration: 1,
       },
     },
-    backgroundColor: "transparent",
-    backdropFilter: "blur(0px)",
   },
   "enabled-hover": {},
 } satisfies Variants;
