@@ -21,13 +21,13 @@ export const hamburgerContainer = style({
     },
   },
 });
-globalStyle(`body:has([data-hamburger-open=true])`, {
-  "@media": {
-    [mediaMobile]: {
-      overflow: "hidden",
-    },
-  },
-});
+// globalStyle(`body:has([data-hamburger-open=true])`, {
+//   "@media": {
+//     [mediaMobile]: {
+//       overflow: "hidden",
+//     },
+//   },
+// });
 export const hamburgerLine = style({
   width: "28px",
   height: "3px",

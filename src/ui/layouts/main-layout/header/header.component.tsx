@@ -99,7 +99,7 @@ export function MainLayoutHeaderSection() {
   );
   const navbarWidth = useTransform(navbarChangeProgress, (latest) => {
     if (isMobile) {
-      return "400px";
+      return "min(calc(100% - 64px), 300px)";
     }
     return transform(latest, [0, 1], ["calc(100% - 0px)", "calc(100% - 24px)"]);
   });
@@ -181,6 +181,7 @@ export function MainLayoutHeaderSection() {
             }}
             variants={resumelinkVariant}
             className={resumeButtonWrapper}
+            transformTemplate={resumeButtonTransformTemplate}
           >
             <LinkButton
               href="/resume.pdf"
@@ -200,6 +201,10 @@ export function MainLayoutHeaderSection() {
   );
 }
 
+const resumeButtonTransformTemplate = (
+  { z }: { z: string },
+  generated: string,
+) => `translateX(${z})` + generated;
 const containerVariants = {
   idle: {
     opacity: 0,
@@ -260,7 +265,8 @@ const resumelinkVariant = {
     position: "static",
     opacity: 0,
     filter: "blur(4px)",
-    y: -20,
+    y: -32,
+    z: 32,
   },
   open: {
     transition: {
@@ -270,6 +276,7 @@ const resumelinkVariant = {
     opacity: 1,
     filter: "blur(0px)",
     y: 0,
+    z: 0,
   },
   desktop: {
     position: "absolute",

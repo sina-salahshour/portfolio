@@ -20,8 +20,7 @@ export const headerContainer = style({
       backdropFilter: "none",
       backgroundColor: "transparent",
       height: "fit-content",
-      paddingBlock: "80px",
-      width: "350px",
+      paddingBlock: "60px",
       flexDirection: "column",
       gap: "24px",
     },
@@ -41,7 +40,6 @@ export const headerWrapper = style({
       opacity: "0",
       display: "flex",
       placeItems: "center",
-      backgroundColor: "#0006",
     },
   },
 });

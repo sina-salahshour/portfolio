@@ -42,7 +42,7 @@ export function HamburgerMenuButton(props: HamburgerMenuButtonProps) {
             borderRadius: "4px",
           }}
           transition={{
-            delay: 0.2,
+            delay: 0.1,
           }}
           className={navbarMenuBackground}
           layoutId="navigation-menu-background"
