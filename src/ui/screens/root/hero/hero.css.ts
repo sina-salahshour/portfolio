@@ -39,7 +39,7 @@ export const heroBanner = style({
   flexShrink: "0",
   "@media": {
     [mediaMobile]: {
-      width: "100%",
+      width: "min(100%, 600px)",
       marginLeft: "0px",
       transform: "translateX(-5%)",
     },

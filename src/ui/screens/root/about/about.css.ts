@@ -26,7 +26,8 @@ export const aboutBanner = style({
   flexShrink: "0",
   "@media": {
     [mediaMobile]: {
-      width: "100%",
+      width: "min(100%, 500px)",
+      marginInline: "auto",
     },
   },
 });

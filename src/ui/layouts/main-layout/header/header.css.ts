@@ -2,8 +2,6 @@ import { style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
-import { menuInput } from "./hamburger-menu-button.css";
-
 export const headerContainer = style({
   display: "flex",
   alignItems: "center",
@@ -14,6 +12,7 @@ export const headerContainer = style({
     [mediaMobile]: {
       height: "100dvh",
       flexDirection: "column",
+      gap: "24px",
     },
   },
 });
@@ -28,13 +27,8 @@ export const headerWrapper = style({
     [mediaMobile]: {
       inset: "0px",
       position: "fixed",
-      transition: "all 250ms",
-      selectors: {
-        [`body:has(${menuInput}:not(:checked))  &`]: {
-          pointerEvents: "none",
-          opacity: "0",
-        },
-      },
+      pointerEvents: "none",
+      opacity: "0",
     },
   },
 });
@@ -57,6 +51,7 @@ export const resumeButton = style({
   "@media": {
     [mediaMobile]: {
       position: "static",
+      transform: "translateY(0%)",
     },
   },
 });
