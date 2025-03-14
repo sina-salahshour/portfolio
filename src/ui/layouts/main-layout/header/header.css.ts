@@ -30,7 +30,7 @@ export const headerContainer = style({
 export const headerWrapper = style({
   position: "sticky",
   top: "0px",
-  zIndex: "50",
+  zIndex: "150",
   "@media": {
     [mediaMobile]: {
       cursor: "pointer",
