@@ -1,4 +1,4 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
