@@ -2,8 +2,6 @@ import { style } from "@vanilla-extract/css";
 
 import { mediaMobile } from "@/ui/screens/root/root.screen.css";
 
-import { theme } from "../main-layout.css";
-
 export const headerContainer = style({
   display: "flex",
   alignItems: "center",
