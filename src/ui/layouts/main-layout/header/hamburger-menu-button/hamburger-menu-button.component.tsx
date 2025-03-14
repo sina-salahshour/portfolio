@@ -14,7 +14,8 @@ export function HamburgerMenuButton(props: HamburgerMenuButtonProps) {
   const isOpen = props.isOpen;
   return (
     <motion.button
-      data-hamburger-open={isOpen}
+      aria-checked={isOpen}
+      role="checkbox"
       variants={buttonVariants}
       animate={isOpen ? "enabled" : "idle"}
       whileHover={isOpen ? "enabled-hover" : "idle-hover"}
@@ -63,6 +64,7 @@ const buttonVariants = {
   enabled: {
     zIndex: 100,
     x: [0, -4, 0],
+    y: [0, 4, 0],
     transition: {
       rotate: {
         duration: 1,

@@ -10,14 +10,22 @@ export const hamburgerContainer = style({
   position: "fixed",
   top: "24px",
   right: "24px",
-  borderRadius: "4px",
   opacity: "0",
   pointerEvents: "none",
   zIndex: "100",
+  backgroundColor: "#fff4",
+  border: "1px dashed transparent",
+  borderRadius: "5px",
+  transition: "border-color 250ms",
   "@media": {
     [mediaMobile]: {
       opacity: "1",
       pointerEvents: "initial",
+    },
+  },
+  selectors: {
+    "&[aria-checked=true]": {
+      borderColor: "#0004",
     },
   },
 });

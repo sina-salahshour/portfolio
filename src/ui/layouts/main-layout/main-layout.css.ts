@@ -46,6 +46,9 @@ export const [themeClassName, theme] = createTheme({
   },
 });
 
+globalStyle("body", {
+  backgroundColor: theme.color.primary.white,
+});
 globalStyle(
   "*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *))",
   {
