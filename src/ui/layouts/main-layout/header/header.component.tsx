@@ -203,6 +203,12 @@ const containerVariants = {
   },
 } satisfies Variants;
 const navbarVariants = {
+  open: {
+    transition: {
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    },
+  },
   hover: {
     y: "0%",
   },
