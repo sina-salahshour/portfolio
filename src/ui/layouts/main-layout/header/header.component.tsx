@@ -128,32 +128,37 @@ export function MainLayoutHeaderSection() {
           className={headerContainer}
           layout
         >
-          <div className={headerLinkStack}>
+          <ul className={headerLinkStack}>
             {menuItems.map((item) => (
-              <motion.div
+              <li
                 className={headerLinkItem}
-                style={{ scale: downloadButtonScale }}
-                variants={linkVariants}
                 key={item.link}
-                onHoverStart={() => setLastHovered(item.link)}
+                style={{ position: "relative" }}
               >
-                <HeaderLinkButton
-                  href={item.link}
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                  }}
+                <motion.div
+                  style={{ scale: downloadButtonScale }}
+                  variants={linkVariants}
+                  onHoverStart={() => setLastHovered(item.link)}
                 >
-                  {item.title}
-                </HeaderLinkButton>
+                  <HeaderLinkButton
+                    href={item.link}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    {item.title}
+                  </HeaderLinkButton>
+                </motion.div>
                 {!isMobile && lastHovered === item.link && (
                   <motion.div
+                    style={{ scale: downloadButtonScale }}
                     className={linkHoverIndicator}
                     layoutId="navlink-hover-indicator"
                   ></motion.div>
                 )}
-              </motion.div>
+              </li>
             ))}
-          </div>
+          </ul>
           <motion.div
             style={{
               scale: downloadButtonScale,
