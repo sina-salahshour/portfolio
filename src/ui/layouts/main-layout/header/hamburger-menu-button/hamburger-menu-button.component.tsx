@@ -42,7 +42,10 @@ const centeredTransformTemplate = (_: unknown, generated: string) =>
   `translate(-50%, -50%)` + generated;
 
 const buttonVariants = {
-  idle: {},
+  idle: {
+    backgroundColor: "#fff4",
+    backdropFilter: "blur(3px)",
+  },
   "idle-hover": {},
   enabled: {
     x: [0, -4, 0],
@@ -51,6 +54,8 @@ const buttonVariants = {
         duration: 1,
       },
     },
+    backgroundColor: "transparent",
+    backdropFilter: "blur(0px)",
   },
   "enabled-hover": {},
 } satisfies Variants;

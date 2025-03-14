@@ -7,8 +7,6 @@ import { theme } from "../../main-layout.css";
 export const hamburgerContainer = style({
   width: "40px",
   height: "40px",
-  backgroundColor: "#fff4",
-  backdropFilter: "blur(3px)",
   position: "fixed",
   top: "24px",
   right: "24px",

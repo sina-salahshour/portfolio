@@ -17,7 +17,7 @@ const aboutMeData = [
 
 export function AboutSection() {
   return (
-    <div className={aboutContainer}>
+    <div id="about" className={aboutContainer}>
       <AboutBanner className={aboutBanner} />
       <section className={aboutInfoContainer}>
         <header className={aboutInfoHeader}>

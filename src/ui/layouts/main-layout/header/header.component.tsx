@@ -22,12 +22,12 @@ import { HeaderLinkButton } from "./link-button/link-button.component";
 
 const menuItems = [
   {
-    title: "About Me",
-    link: "#about",
-  },
-  {
     title: "Skills",
     link: "#skills",
+  },
+  {
+    title: "About Me",
+    link: "#about",
   },
   {
     title: "Project",
@@ -46,7 +46,6 @@ export function MainLayoutHeaderSection() {
     <>
       <HamburgerMenuButton isOpen={isMenuOpen} onToggle={setIsMenuOpen} />
       <motion.div
-        initial={false}
         animate={!isMobile ? "desktop" : isMenuOpen ? "open" : "idle"}
         variants={containerVariants}
         className={clsx(wrapper, headerWrapper)}
@@ -56,7 +55,12 @@ export function MainLayoutHeaderSection() {
           <div className={headerLinkStack}>
             {menuItems.map((item) => (
               <motion.div variants={linkVariants} key={item.link}>
-                <HeaderLinkButton href={item.link}>
+                <HeaderLinkButton
+                  href={item.link}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                  }}
+                >
                   {item.title}
                 </HeaderLinkButton>
               </motion.div>
