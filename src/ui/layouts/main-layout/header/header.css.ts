@@ -98,3 +98,11 @@ export const navbarMenuBackground = style({
   position: "absolute",
   backdropFilter: "blur(2px)",
 });
+
+export const navbarMenuMask = style({
+  backgroundColor: theme.color.zinc[800],
+  opacity: 0,
+  inset: "0",
+  position: "absolute",
+  backdropFilter: "blur(2px)",
+});

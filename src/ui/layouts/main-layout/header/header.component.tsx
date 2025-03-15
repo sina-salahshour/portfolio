@@ -24,6 +24,7 @@ import {
   headerWrapper,
   linkHoverIndicator,
   navbarMenuBackground,
+  navbarMenuMask,
   resumeButton,
   resumeButtonIcon,
   resumeButtonWrapper,
@@ -91,7 +92,10 @@ export function MainLayoutHeaderSection() {
   );
   const downloadButtonX = useTransform(navbarChangeProgress, [0, 1], [0, 28]);
   const navbarPadding = useTransform(navbarChangeProgress, [0, 1], [0, 8]);
-  const navbarBorderRadius = useTransform(navbarChangeProgress, [0, 1], [4, 8]);
+  const navbarBorderRadius = useTransform(navbarChangeProgress, (latest) => {
+    if (isMobile) return 10;
+    return transform(latest, [0, 1], [4, 8]);
+  });
   const navbarBorderColor = useTransform(
     navbarChangeProgress,
     [0, 0.5, 1],
@@ -99,20 +103,18 @@ export function MainLayoutHeaderSection() {
   );
   const navbarWidth = useTransform(navbarChangeProgress, (latest) => {
     if (isMobile) {
-      return "min(calc(100% - 64px), 300px)";
+      return "min(calc(100% - 64px), 280px)";
     }
     return transform(latest, [0, 1], ["calc(100% - 0px)", "calc(100% - 24px)"]);
   });
   return (
     <>
-      <HamburgerMenuButton isOpen={isMenuOpen} onToggle={setIsMenuOpen} />
       <motion.div
         animate={!isMobile ? "desktop" : isMenuOpen ? "open" : "idle"}
         variants={containerVariants}
         whileHover="hover"
         onTap={() => {
           setIsNavbarHidden(false);
-          setIsMenuOpen(false);
         }}
         className={clsx(wrapper, headerWrapper)}
         custom={isNavbarHidden}
@@ -122,6 +124,14 @@ export function MainLayoutHeaderSection() {
         }}
         layout
       >
+        {isMobile && (
+          <motion.button
+            className={navbarMenuMask}
+            variants={navbarMenuMaskVariant}
+            onClick={() => setIsMenuOpen(false)}
+          ></motion.button>
+        )}
+        <HamburgerMenuButton isOpen={isMenuOpen} onToggle={setIsMenuOpen} />
         <motion.header
           style={{
             width: navbarWidth,
@@ -207,14 +217,14 @@ const resumeButtonTransformTemplate = (
 ) => `translateX(${z})` + generated;
 const containerVariants = {
   idle: {
-    opacity: 0,
+    opacity: 1,
     pointerEvents: "none",
     transition: {},
   },
   open: {
     opacity: 1,
     transition: {
-      delayChildren: 0.1,
+      delayChildren: 0.3,
       staggerChildren: 0.1,
       when: "beforeChildren",
     },
@@ -230,16 +240,20 @@ const containerVariants = {
   },
 } satisfies Variants;
 const navbarVariants = {
+  idle: {
+    boxShadow: "5px 5px 10px #0000",
+  },
   open: {
     transition: {
+      delayChildren: 0.3,
       staggerChildren: 0.1,
-      when: "beforeChildren",
     },
+    boxShadow: "0px 0px 24px #0004",
   },
   hover: {
     y: "0%",
   },
-};
+} satisfies Variants;
 const linkVariants = {
   idle: {
     opacity: 0,
@@ -281,5 +295,15 @@ const resumelinkVariant = {
   desktop: {
     position: "absolute",
     right: "24px",
+  },
+} satisfies Variants;
+const navbarMenuMaskVariant = {
+  idle: {
+    opacity: 0,
+    pointerEvents: "none",
+  },
+  open: {
+    opacity: 0.5,
+    pointerEvents: "auto",
   },
 } satisfies Variants;

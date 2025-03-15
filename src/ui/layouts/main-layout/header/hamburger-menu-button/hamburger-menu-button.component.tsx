@@ -57,12 +57,9 @@ const centeredTransformTemplate = (_: unknown, generated: string) =>
   `translate(-50%, -50%)` + generated;
 
 const buttonVariants = {
-  idle: {
-    zIndex: 30,
-  },
+  idle: {},
   "idle-hover": {},
   enabled: {
-    zIndex: 100,
     x: [0, -4, 0],
     y: [0, 4, 0],
     transition: {
