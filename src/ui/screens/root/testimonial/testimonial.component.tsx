@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 
-import DummyTestimonialAvatar from "@/assets/images/(testimonial)/project-1.png";
+import DummyTestimonialAvatar from "@/assets/images/(testimonial)/saeed-najafi.jpg";
 import { Typography } from "@/ui/components/typography/typography.component";
 
 import {
@@ -11,14 +11,14 @@ import {
 import { TestimonialCard } from "./testimonial-card/testimonial-card.component";
 
 const dummyTestimonials = Array.from(
-  { length: 3 },
+  { length: 1 },
   (_, index) =>
     ({
-      name: "Evren Shah",
+      name: "Saeed Najafi",
       testimonial:
-        "I recently had to jump on 10+ different calls across eight different countries to find the right owner.",
+        "During the past few years, I have had the pleasure of working with Sina on multiple successful projects. Sina is not only highly experienced in his field, but he also excels in teamwork and possesses extensive knowledge of cutting-edge technologies.",
       avatar: DummyTestimonialAvatar,
-      role: "Designer",
+      role: "Tech Lead",
       variant: index === 1 ? "secondary" : "primary",
     }) satisfies ComponentProps<typeof TestimonialCard>,
 );

@@ -7,6 +7,7 @@ const cardBackgroundColor = createVar("card-background-color");
 
 export const testimonialCardContainer = style({
   display: "flex",
+  margin: "auto",
   flexDirection: "column",
   padding: "40px",
   gap: "24px",

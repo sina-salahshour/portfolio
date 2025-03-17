@@ -10,8 +10,8 @@ export const linkButton = style({
 });
 
 export const linkIcon = style({
-  width: "20px",
-  height: "20px",
+  width: "40px",
+  height: "40px",
 });
 
 globalStyle(`${linkIcon} path`, {
