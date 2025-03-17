@@ -94,7 +94,7 @@ export function MainLayoutHeaderSection() {
   const navbarPadding = useTransform(navbarChangeProgress, [0, 1], [0, 8]);
   const navbarBorderRadius = useTransform(navbarChangeProgress, (latest) => {
     if (isMobile) return 10;
-    return transform(latest, [0, 1], [4, 8]);
+    return transform(latest, [0, 1], [4, 12]);
   });
   const navbarBorderColor = useTransform(
     navbarChangeProgress,
