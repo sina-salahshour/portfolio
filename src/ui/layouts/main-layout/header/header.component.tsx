@@ -123,6 +123,7 @@ export function MainLayoutHeaderSection() {
           paddingTop: navbarPadding,
         }}
         layout
+        initial="idle"
       >
         {isMobile && (
           <motion.button
