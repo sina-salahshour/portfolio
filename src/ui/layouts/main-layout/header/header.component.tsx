@@ -240,15 +240,12 @@ const containerVariants = {
   },
 } satisfies Variants;
 const navbarVariants = {
-  idle: {
-    boxShadow: "5px 5px 10px #0000",
-  },
+  idle: {},
   open: {
     transition: {
       delayChildren: 0.3,
       staggerChildren: 0.1,
     },
-    boxShadow: "0px 0px 24px #0004",
   },
   hover: {
     y: "0%",
