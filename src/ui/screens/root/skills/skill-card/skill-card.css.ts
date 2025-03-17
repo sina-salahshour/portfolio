@@ -40,16 +40,17 @@ export const skillCardIcon = style({
   width: "56px",
   height: "56px",
   transition: "all 250ms",
+  filter: "grayscale(1)",
   selectors: {
     [`${skillCardContainer}:nth-child(odd) &`]: {
-      filter: "invert(1)",
+      filter: "grayscale(1) invert(1)",
     },
   },
   "@media": {
     [mediaMobile]: {
       selectors: {
         [`${skillCardContainer}:nth-child(odd) &`]: {
-          filter: "none",
+          filter: "grayscale(1)",
         },
       },
     },
