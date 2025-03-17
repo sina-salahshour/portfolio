@@ -264,6 +264,8 @@ const linkVariants = {
   },
   desktop: {
     opacity: 1,
+    x: 0,
+    y: 0,
   },
   hover: {},
 } satisfies Variants;
@@ -292,6 +294,10 @@ const resumelinkVariant = {
   desktop: {
     position: "absolute",
     right: "24px",
+    opacity: 1,
+    filter: "blur(0px)",
+    y: 0,
+    z: 0,
   },
 } satisfies Variants;
 const navbarMenuMaskVariant = {
