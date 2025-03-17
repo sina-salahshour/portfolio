@@ -26,6 +26,12 @@ export const skillCardContainer = style({
     [mediaMobile]: {
       width: "160px",
       height: "160px",
+      selectors: {
+        "&:nth-child(odd)": {
+          backgroundColor: theme.color.primary.white,
+          color: theme.color.primary.black,
+        },
+      },
     },
   },
 });
@@ -37,6 +43,15 @@ export const skillCardIcon = style({
   selectors: {
     [`${skillCardContainer}:nth-child(odd) &`]: {
       filter: "invert(1)",
+    },
+  },
+  "@media": {
+    [mediaMobile]: {
+      selectors: {
+        [`${skillCardContainer}:nth-child(odd) &`]: {
+          filter: "none",
+        },
+      },
     },
   },
 });
