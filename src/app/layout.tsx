@@ -1,4 +1,7 @@
+import "lenis/dist/lenis.css";
+
 import clsx from "clsx";
+import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 
@@ -26,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(sora.variable, themeClassName)}>
-        <MainLayout>{children}</MainLayout>
+        <ReactLenis root>
+          <MainLayout>{children}</MainLayout>
+        </ReactLenis>
       </body>
     </html>
   );
