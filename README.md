@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Project
+
+![Nova Universe](./src/app/icon.png)
+
+This is a `Node-v20.18.3` and [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+If you don't have the `pnpm` installed already, install it with the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# using corepack:
+corepack enable
+
+# or using npm
+npm i --global pnpm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+then install the project dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can run the following commands in the project scope:
 
-## Learn More
+```bash
 
-To learn more about Next.js, take a look at the following resources:
+# run the development server
+pnpm dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# build the project
+pnpm build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# preview the build result
+pnpm start
+```
 
-## Deploy on Vercel
+For the dev and preview server, Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Using version manager
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can run the command `nvm use` for switching to the correct node version.
+
+#### Using with direnv
+
+If you have `direnv` installed, you can run the command `direnv allow` once.
+after that, node version will change automatically when inside project root.
